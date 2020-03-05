@@ -1,10 +1,14 @@
 import collections
+from typing import List
 
 import base.solution
 
 class Solution(base.solution.Solution):
     
-    def topsort_basic(self, edges=[]):
+    def topsort_basic(self, edges: List[List[int]] = []):
+        if type(edges) is not list:
+            raise TypeError(f"Input type error {type(edges)}")
+        
         graph = collections.defaultdict(list)
         for a, b in edges:
             graph[a].append(b)

@@ -39,9 +39,14 @@ def run_problem(problem):
     solution_obj = solution.Solution(problem)
     
     for name, testcase in testcases.items():
+        print(f"Running {name}")
         kwargs = {k: testcase[k] for k in testcase if k != 'answer'}
-        output = getattr(solution_obj, problem[-1])(**kwargs)
-        assert output == testcase['answer'], f"Testcase {name} output = {output} != {testcase['answer']}"
+        try:
+            output = getattr(solution_obj, problem[-1])(**kwargs)
+            assert output == testcase['answer'], f"Testcase {name} output = {output} != {testcase['answer']}"
+        except Exception as e:
+            assert type(e).__name__ == testcase['error'], f"Error {e} is not expected {testcase['error']}"
+    print("Done.")
 
 if __name__ == '__main__':
     args = parser.parse_args()

@@ -29,5 +29,13 @@
             [0, 1]
         ],
         "answer": false
+    },
+    "no_edges": {
+        "edges": [],
+        "answer": true
+    },
+    "wrong_type": {
+        "edges": "string",
+        "error": "TypeError"
     }
 }
