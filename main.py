@@ -1,7 +1,8 @@
 import argparse
-import os
 import importlib
 import json
+import os
+import datetime
 
 parser = argparse.ArgumentParser(add_help=False)
 parser.add_argument('--problem', type=str)
@@ -40,12 +41,14 @@ def run_problem(problem):
     
     for name, testcase in testcases.items():
         print(f"Running {name}")
-        kwargs = {k: testcase[k] for k in testcase if k != 'answer'}
+        start_time = datetime.datetime.now()
+        kwargs = {k: testcase[k] for k in testcase if k not in ['error', 'answer']}
         try:
             output = getattr(solution_obj, problem[-1])(**kwargs)
             assert output == testcase['answer'], f"Testcase {name} output = {output} != {testcase['answer']}"
         except Exception as e:
-            assert type(e).__name__ == testcase['error'], f"Error {e} is not expected {testcase['error']}"
+            assert type(e).__name__ == testcase['error'], f"Error {e} is not expected {testcase['error']}. Error msg: {e}"
+        print(f"    spent {(datetime.datetime.now() - start_time).microseconds} microseconds")
     print("Done.")
 
 if __name__ == '__main__':

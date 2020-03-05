@@ -3,9 +3,52 @@ from typing import List
 
 import base.solution
 
+class GNode:
+    def __init__(self):
+        self.incoming_count = 0
+        self.children = []
+
 class Solution(base.solution.Solution):
-    
+    """
+    Use Topological sort to go through all DAG nodes. Any non DAG node will not
+    go through BFS.
+    T: O(N)
+    S: O(N), using a set to track
+    """
     def topsort_basic(self, edges: List[List[int]] = []):
+        if type(edges) is not list:
+            raise TypeError(f"Input type error {type(edges)}")
+        
+        graph = collections.defaultdict(GNode)
+        all_nodes = set()
+        for a, b in edges:
+            graph[a].children.append(b)
+            graph[b].incoming_count += 1
+            all_nodes.add(graph[a])
+            all_nodes.add(graph[b])
+
+        queue = collections.deque()
+        for node in graph.values():
+            if node.incoming_count == 0:
+                queue.append(node)
+
+        while queue:
+            node = queue.popleft()
+            for n_node in node.children:
+                graph[n_node].incoming_count -= 1
+                if graph[n_node].incoming_count == 0:
+                    queue.append(graph[n_node])
+            if node in all_nodes:
+                all_nodes.remove(node)
+
+        return len(all_nodes) == 0
+    
+    """
+    Using set to track each dfs, and detect circle if next step in set.
+    T: O(N)
+    S: O(N)
+    """
+    def topsort_basic_with_set_approach(self, edges: List[List[int]] = []):
         if type(edges) is not list:
             raise TypeError(f"Input type error {type(edges)}")
         
