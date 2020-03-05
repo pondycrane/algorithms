@@ -38,9 +38,10 @@ def run_problem(problem):
     spec.loader.exec_module(solution)
     solution_obj = solution.Solution(problem)
     
-    for ind, testcase in enumerate(testcases):
-        output = getattr(solution_obj, problem[-1])(*testcase[:-1])
-        assert output == testcase[-1], f"Testcase {ind} output = {output} != {testcase[-1]}"
+    for name, testcase in testcases.items():
+        kwargs = {k: testcase[k] for k in testcase if k != 'answer'}
+        output = getattr(solution_obj, problem[-1])(**kwargs)
+        assert output == testcase['answer'], f"Testcase {name} output = {output} != {testcase['answer']}"
 
 if __name__ == '__main__':
     args = parser.parse_args()

@@ -4,9 +4,9 @@ import base.solution
 
 class Solution(base.solution.Solution):
     
-    def topsort_basic(self, data):
+    def topsort_basic(self, edges=[]):
         graph = collections.defaultdict(list)
-        for a, b in data:
+        for a, b in edges:
             graph[a].append(b)
         
         # Track total visit, just like regular topsort
