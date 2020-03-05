@@ -12,22 +12,33 @@ class Solution(base.solution.Solution):
         # Track total visit, just like regular topsort
         visited = set()
 
-        def dfs(curr_visited, cur_visit):
-            if cur_visit not in graph:
-                return True
-                
-            for next_visit in graph[cur_visit]:
+        def dfs(curr_visited, visiting):
+            curr_visited.add(visiting)
+            is_dag = True
+
+            if visiting not in graph:
+                # Leaf node detected
+                curr_visited.remove(visiting)
+                return is_dag
+            
+            for next_visit in graph[visiting]:
+                # Loop detected
                 if next_visit in curr_visited:
-                    return False
+                    is_dag = False
+                    break
                 
                 if next_visit not in visited:
                     curr_visited.add(next_visit)
+                    # Loop detected, back track
                     if not dfs(curr_visited, next_visit):
-                        return False
-            return True
-
+                        is_dag = False
+                        break
+            
+            curr_visited.remove(visiting)
+            return is_dag
+            
         for course in graph:
             if course not in visited:
-                if not dfs(set([course]), course): # Use set to track loop
+                if not dfs(set(), course): # Use set to track loop
                     return False
         return True
