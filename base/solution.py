@@ -1,5 +1,7 @@
 import json
 import unittest
+import traceback
+import sys
 
 import base.testcases
 import lib.path_utils
@@ -7,15 +9,22 @@ import lib.path_utils
 
 def test_generator(solution_obj, method_name, kwargs, answer, error):
     def test(self):
-        positive_testcase = True
         try:
             output = getattr(solution_obj, method_name)(**kwargs)
+            assert output == answer
         except Exception as e:
-            assert type(e).__name__ == error, f"Error {e} is not expected {error}. Error msg: {e}"
-            positive_testcase = False
-        
-        if positive_testcase:
-            assert output == answer, f"output = {output} != {answer}"
+            if error is not None:
+                assert type(e).__name__ == error, f"Error {e} is not expected {error}. Error msg: {e}"
+            else:
+                print("-"*60)
+                traceback.print_exc(limit=3, file=sys.stdout)
+                print("-"*60)
+
+                if type(e).__name__ == 'AssertionError':
+                    raise AssertionError(f"\nInput data: {kwargs}\nOutput: {output} != {answer}")
+                else:
+                    raise e
+
     return test
 
 
@@ -29,7 +38,6 @@ class Solution:
             lib.path_utils.generate_problem_paths(self.problem)['testcases']
         ) as sh:
             testcases = json.loads(sh.read())
-        
         for testname, parameters in testcases.items():
             testcase_name = f"test_{testname}"
             kwargs = {k: v for k, v in parameters.items() if k not in ['answer', 'error']}

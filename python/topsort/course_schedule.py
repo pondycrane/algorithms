@@ -14,7 +14,10 @@ You are given a list of course dependencies, find the courses need to take.
 Input: list of dependences. [a, b] means class a depends on finishing class b.
 """
 class Solution(base.solution.Solution):
-    def min_semester_required(self, dependencies: List[List[int]] = []):
+    def course_schedule(self, dependencies: List[List[int]] = []):
+        if type(dependencies) is not list:
+            raise TypeError(f"Input type error {type(dependencies)}")
+
         graph = collections.defaultdict(GNode)
 
         total_courses = set()
@@ -30,22 +33,22 @@ class Solution(base.solution.Solution):
             total_courses.add(pre_node)
             total_courses.add(c_node)
         
+        queue = collections.deque([(n, 0) for n in graph.values() if n.incoming_count == 0])
         course_schedule = []
-        def dfs(node, semester):
+        while queue:
+            node, semester = queue.popleft()
+            
             for prerequisite in node.children:
-                print(total_courses)
-                if graph[prerequisite] in total_courses:
-                    graph[prerequisite].incoming_count -= 1
-                    dfs(graph[prerequisite], semester + 1)
+                next_node = graph[prerequisite]
+                next_node.incoming_count -= 1
+                if next_node.incoming_count == 0:
+                    queue.append((next_node, semester + 1))
 
             if node.incoming_count == 0:
                 while len(course_schedule) - 1 < semester:
                     course_schedule.append([])
                 course_schedule[semester].append(node.val)
                 total_courses.remove(node)
-                        
-        for node in [n for n in graph.values() if n.incoming_count == 0]:
-            dfs(node, 0)
 
         if len(total_courses) > 0:
             return None

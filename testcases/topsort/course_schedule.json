@@ -32,5 +32,9 @@
             [0, 1]
         ],
         "answer": null
+    },
+    "wrong_type": {
+        "dependencies": "string",
+        "error": "TypeError"
     }
 }
