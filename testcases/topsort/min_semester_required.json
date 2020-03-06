@@ -1,0 +1,36 @@
+{
+    "just_2_courses": {
+        "dependencies": [
+            [1, 0]
+        ],
+        "answer": [[0], [1]]
+    },
+    "small_sample_with_loop": {
+        "dependencies": [
+            [1, 0],
+            [0, 1]
+        ],
+        "answer": null
+    },
+    "small_dag": {
+        "dependencies": [
+            [0, 5],
+            [2, 5],
+            [3, 2],
+            [0, 4],
+            [1, 4],
+            [3, 1]
+        ],
+        "answer": [[4, 5], [0, 1, 2], [3]]
+    },
+    "leetcode_solution_example": {
+        "dependencies": [
+            [4, 3],
+            [0, 4],
+            [2, 0],
+            [1, 2],
+            [0, 1]
+        ],
+        "answer": null
+    }
+}
