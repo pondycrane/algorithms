@@ -1,5 +1,6 @@
 import argparse
 import datetime
+import unittest
 
 import lib.path_utils
 
@@ -8,7 +9,9 @@ parser.add_argument('--problem', type=str)
 
 def run_problem(problem):
     solution_obj = lib.path_utils.load_solution(problem)
-    solution_obj.load_testcases()
+    unittest.TextTestRunner().run(
+        solution_obj.load_testsuite()
+    )
 
 if __name__ == '__main__':
     args = parser.parse_args()

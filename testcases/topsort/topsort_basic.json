@@ -1,51 +1,66 @@
 {
-    "2_connected_sources": {
-        "edges": [
-            [5, 0],
-            [5, 2],
-            [2, 3],
-            [4, 0],
-            [4, 1],
-            [1, 3]
-        ],
-        "answer": true
-    },
-    "small_dag": {
-        "edges": [
-            [5, 0],
-            [5, 2],
-            [2, 3],
-            [4, 0],
-            [4, 1],
-            [1, 3]
-        ],
-        "answer": true
-    },
-    "leetcode_solution_example": {
-        "edges": [
-            [3, 4],
-            [4, 0],
-            [0, 2],
-            [2, 1],
-            [1, 0]
-        ],
-        "answer": false
-    },
-    "small_loop": {
-        "edges": [
-            [3, 0],
-            [1, 0],
-            [2, 0],
-            [0, 1]
-        ],
-        "answer": false
-    },
-    "no_edges": {
-        "edges": [],
-        "answer": true
-    },
-    "wrong_type": {
-        "edges": "string",
-        "error": "TypeError"
+    "verify_method": "EQUAL",
+    "testcases": {
+        "2_connected_sources": {
+            "parameters": {
+                "edges": [
+                    [5, 0],
+                    [5, 2],
+                    [2, 3],
+                    [4, 0],
+                    [4, 1],
+                    [1, 3]
+                ]
+            },
+            "answer": true
+        },
+        "small_dag": {
+            "parameters": {
+                "edges": [
+                    [5, 0],
+                    [5, 2],
+                    [2, 3],
+                    [4, 0],
+                    [4, 1],
+                    [1, 3]
+                ]
+            },
+            "answer": true
+        },
+        "leetcode_solution_example": {
+            "parameters": {
+                "edges": [
+                    [3, 4],
+                    [4, 0],
+                    [0, 2],
+                    [2, 1],
+                    [1, 0]
+                ]
+            },
+            "answer": false
+        },
+        "small_loop": {
+            "parameters": {
+                "edges": [
+                    [3, 0],
+                    [1, 0],
+                    [2, 0],
+                    [0, 1]
+                ]
+            },
+            "answer": false
+        },
+        "no_edges": {
+            "parameters": {
+                "edges": []
+            },
+            "answer": true
+        },
+        "wrong_type": {
+            "parameters": {
+                "edges": "string"
+            },
+            "error": "TypeError"
+        }
     }
 }

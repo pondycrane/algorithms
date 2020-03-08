@@ -4,14 +4,15 @@ import traceback
 import sys
 
 import base.testcases
+import base.verification as verification
 import lib.path_utils
 
 
-def test_generator(solution_obj, method_name, kwargs, answer, error):
+def test_generator(solution_obj, method_name, kwargs, answer, error, verify_method):
     def test(self):
         try:
             output = getattr(solution_obj, method_name)(**kwargs)
-            assert output == answer
+            assert verification.verify(output, answer, verify_method)
         except Exception as e:
             if error is not None:
                 assert type(e).__name__ == error, f"Error {e} is not expected {error}. Error msg: {e}"
@@ -33,28 +34,30 @@ class Solution:
         self.problem = problem
         self.method_name = problem[-1]
 
-    def load_testcases(self):
+    def load_testsuite(self):
         with open(
             lib.path_utils.generate_problem_paths(self.problem)['testcases']
         ) as sh:
-            testcases = json.loads(sh.read())
-        for testname, parameters in testcases.items():
+            json_data = json.loads(sh.read())
+            testcases = json_data['testcases']
+            verify_method = json_data['verify_method']
+        for testname, testcase in testcases.items():
             testcase_name = f"test_{testname}"
-            kwargs = {k: v for k, v in parameters.items() if k not in ['answer', 'error']}
             setattr(
                 base.testcases.TestCases,
                 testcase_name,
                 test_generator(
                     self,
                     self.method_name,
-                    kwargs,
-                    parameters.get('answer', None), parameters.get('error', None)
+                    testcase['parameters'],
+                    testcase.get('answer', None),
+                    testcase.get('error', None),
+                    verify_method
                 )
             )
         suite = unittest.TestSuite()
         suite.addTests(unittest.TestLoader().loadTestsFromTestCase(base.testcases.TestCases))
-        runner = unittest.TextTestRunner()
-        runner.run(suite)
+        return suite
 
     def execute_testcases(self):
         # implement testcases
