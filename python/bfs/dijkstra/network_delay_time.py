@@ -15,26 +15,26 @@ class Node:
 class Solution(base.solution.Solution):
     def network_delay_time(self, times: typing.List[typing.List[int]], N: int, K: int) -> int:
         graph = {i: Node(i) for i in range(1, N + 1)}
-        unseen = set(range(1, N + 1))
+        seen = set()
         for source, target, cost in times:
             graph[source].targets.append((target, cost))
+        
         graph[K].cost = 0
         h = [graph[K]]
         while h:
             node = heapq.heappop(h)
-            if node.n_id not in unseen:
-                continue
-
-            unseen.remove(node.n_id)
-            if not unseen:
+            seen.add(node.n_id)
+            if len(seen) == N:
                 break
             
             for target, cost in node.targets:
                 next_n = graph[target]
-                next_n.cost = min(next_n.cost, node.cost + cost)
-                if next_n.n_id != K and next_n.n_id in unseen:
-                    heapq.heappush(h, next_n)
-        return node.cost if not unseen else -1
+                if node.cost + cost < next_n.cost:
+                    next_n.cost = node.cost + cost
+                    if next_n.n_id != K:
+                        heapq.heappush(h, next_n)
+        
+        return node.cost if len(seen) == N else -1
             
 
 
