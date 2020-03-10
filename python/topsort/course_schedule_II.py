@@ -4,19 +4,20 @@ import typing
 import base.solution
 
 class Solution(base.solution.Solution):
-    def course_schedule_II(self, dependencies: typing.List[typing.List[int]] = []):
+    def course_schedule_II(self, num_of_courses: int, dependencies: typing.List[typing.List[int]] = []):
         if type(dependencies) is not list:
             raise TypeError(f"Input type error {type(dependencies)}")
         
         graph = collections.defaultdict(set)
         visit = collections.defaultdict(int)
+        for c in range(num_of_courses):
+            graph[c]
+            visit[c]
+
         # Use visit dict to track status
         # 0: unvisited; 1: visiting; 2: visited
         for a, b in dependencies:
             graph[b].add(a)
-            graph[a]
-            visit[a]
-            visit[b]
         
         def is_cycle(course):
             visit[course] = 1
