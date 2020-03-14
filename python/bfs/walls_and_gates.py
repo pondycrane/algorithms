@@ -16,23 +16,20 @@ class Solution(base.solution.Solution):
         for i in range(len(rooms)):
             for j in range(len(rooms[0])):
                 if rooms[i][j] == 0:
-                    queue.append((i, j, 0))
+                    queue.append((i, j))
 
-        def is_valid(x, y, visited):
-            if x < 0 or y < 0 or x >= len(rooms) or y >= len(rooms[0]) or rooms[x][y] < 0 or visited[x][y]:
+        def is_valid(x, y):
+            if x < 0 or y < 0 or x >= len(rooms) or y >= len(rooms[0]) or rooms[x][y] != float('inf'):
                 return False
             return True
 
-        visited = [[False] * len(row) for row in rooms]
         while queue:
-            x, y, curr = queue.popleft()
-            visited[x][y] = True
-            rooms[x][y] = min(rooms[x][y], curr)
-
+            x, y = queue.popleft()
             for ix, iy in steps:
                 nx, ny = x + ix, y + iy
-                if is_valid(nx, ny, visited):
-                    queue.append((nx, ny, curr + 1))
+                if is_valid(nx, ny):
+                    rooms[nx][ny] = rooms[x][y] + 1
+                    queue.append((nx, ny))
         return rooms
 
 
