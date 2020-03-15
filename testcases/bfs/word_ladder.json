@@ -1,0 +1,21 @@
+{
+    "verify_method": "EQUAL",
+    "testcases": {
+        "case_1": {
+            "parameters": {
+                "beginWord": "hit",
+                "endWord": "cog",
+                "wordList": ["hot","dot","dog","lot","log","cog"]
+            },
+            "answer": 5
+        },
+        "case_2": {
+            "parameters": {
+                "beginWord": "hit",
+                "endWord": "cog",
+                "wordList": ["hot","dot","dog","lot","log"]
+            },
+            "answer": 0
+        }
+    }
+}

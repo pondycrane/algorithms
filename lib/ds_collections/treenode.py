@@ -10,7 +10,7 @@ class TreeNode:
             return None
 
         def build_tree(parent, ind):
-            if ind >= len(arr):
+            if ind >= len(arr) or not arr[ind]:
                 return
             
             if ind % 2 == 1:
