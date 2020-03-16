@@ -1,0 +1,35 @@
+{
+    "verify_method": "EQUAL",
+    "testcases": {
+        "case_1": {
+            "parameters": {
+                "board": [
+                    ["X","X","X","X"],
+                    ["X","O","O","X"],
+                    ["X","X","O","X"],
+                    ["X","O","X","X"]
+                ]
+            },
+            "answer": [
+                ["X","X","X","X"],
+                ["X","X","X","X"],
+                ["X","X","X","X"],
+                ["X","O","X","X"]
+            ]
+        },
+        "case_2": {
+            "parameters": {
+                "board": [
+                    ["X","O","X"],
+                    ["O","X","O"],
+                    ["X","O","X"]
+                ]
+            },
+            "answer": [
+                ["X","O","X"],
+                ["O","X","O"],
+                ["X","O","X"]
+            ]
+        }
+    }
+}

@@ -1,3 +1,4 @@
+import copy
 import json
 import unittest
 import traceback
@@ -10,6 +11,7 @@ import lib.path_utils
 
 def test_generator(solution_obj, method_name, kwargs, answer, error, verify_method):
     def test(self):
+        input_data = copy.deepcopy(kwargs)
         try:
             output = getattr(solution_obj, method_name)(**kwargs)
             assert verification.verify(output, answer, verify_method)
@@ -22,7 +24,7 @@ def test_generator(solution_obj, method_name, kwargs, answer, error, verify_meth
                 print("-"*60)
 
                 if type(e).__name__ == 'AssertionError':
-                    raise AssertionError(f"\nInput data: {kwargs}\nOutput: {output} != {answer}")
+                    raise AssertionError(f"\nInput data: {input_data}\nOutput: {output} != {answer}")
                 else:
                     raise e
 
