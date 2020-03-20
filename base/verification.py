@@ -2,6 +2,7 @@ from enum import Enum
 
 class Verification(Enum):
     UNORDERED_SUBlISTS = 'UNORDERED_SUBLISTS'
+    UNORDERED_LIST = 'UNORDERED_LIST'
     EQUAL = 'EQUAL'
 
 def verify(output, answer, verify_method):
@@ -13,8 +14,13 @@ def verify(output, answer, verify_method):
         return verify_unordered_sublists(output, answer)
     elif enum_method == Verification.EQUAL:
         return output == answer
+    elif enum_method == Verification.UNORDERED_LIST:
+        return verify_unordered_list(output, answer)
     else:
         raise Exception(f"{enum_method} not supported")
+
+def verify_unordered_list(output, answer):
+    return sorted(output) == sorted(answer)
 
 def verify_unordered_sublists(output, answer):
     if not output and not answer:

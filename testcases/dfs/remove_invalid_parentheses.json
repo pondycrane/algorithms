@@ -1,0 +1,23 @@
+{
+    "verify_method": "UNORDERED_LIST",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "s": "()())()"
+            },
+            "answer": ["()()()", "(())()"]
+        },
+        "case_2": {
+            "parameters": {
+                "s": "(a)())()"
+            },
+            "answer": ["(a)()()", "(a())()"]
+        },
+        "case_3": {
+            "parameters": {
+                "s": ")("
+            },
+            "answer": [""]
+        }
+    }
+}
