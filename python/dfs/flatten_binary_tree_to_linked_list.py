@@ -5,11 +5,34 @@ import lib.ds_collections.treenode as treenode
 
 class Solution(base.solution.Solution):
     """
-    DFS in place
+    DFS in place, but process the closest first.
     T: O(N)
-    S: O(1)
+    S: O(1) no stack required
     """
     def flatten_binary_tree_to_linked_list(self, arr: list) -> None:
+        root = treenode.TreeNode.deserialize(arr)
+        if not root:
+            return root
+        
+        curr = root
+        while curr:
+            if curr.left:
+                right_most = curr.left
+                while right_most.right:
+                    right_most = right_most.right
+                right_most.right = curr.right
+                curr.right = curr.left
+                curr.left = None
+            curr = curr.right
+        return root
+
+
+    """
+    DFS in place.
+    T: O(N)
+    S: O(N) due to recursion stack
+    """
+    def flatten_binary_tree_to_linked_list_dfs(self, arr: list) -> None:
         root = treenode.TreeNode.deserialize(arr)
         if not root:
             return root
