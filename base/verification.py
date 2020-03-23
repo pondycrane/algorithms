@@ -1,9 +1,12 @@
 from enum import Enum
 
+import lib.ds_collections.treenode as treenode
+
 class Verification(Enum):
     UNORDERED_SUBlISTS = 'UNORDERED_SUBLISTS'
     UNORDERED_LIST = 'UNORDERED_LIST'
     EQUAL = 'EQUAL'
+    TREE = 'TREE'
 
 def verify(output, answer, verify_method):
     if not hasattr(Verification, verify_method):
@@ -16,8 +19,17 @@ def verify(output, answer, verify_method):
         return output == answer
     elif enum_method == Verification.UNORDERED_LIST:
         return verify_unordered_list(output, answer)
+    elif enum_method == Verification.TREE:
+        return verify_tree(output, answer)
     else:
         raise Exception(f"{enum_method} not supported")
+
+def verify_tree(output, answer):
+    if isinstance(output, treenode.TreeNode):
+        output = treenode.TreeNode.serialize(output)
+    if isinstance(answer, treenode.TreeNode):
+        answer = treenode.TreeNode.serialize(answer)
+    return output == answer
 
 def verify_unordered_list(output, answer):
     return sorted(output) == sorted(answer)

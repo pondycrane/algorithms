@@ -1,8 +1,29 @@
+import collections
+
 class TreeNode:
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
+
+    @classmethod
+    def serialize(cls, root):
+        res = []
+
+        queue = collections.deque()
+        queue.append((root, 0))
+        while queue:
+            node, level = queue.popleft()
+            if not node:
+                continue
+            while len(res) <= level:
+                res.append(None)
+            res[level] = node.val
+            if node.left:
+                queue.append((node.left, 2 * level + 1))
+            if node.right:
+                queue.append((node.right, 2 * level + 2))
+        return res
 
     @classmethod
     def deserialize(cls, arr):
