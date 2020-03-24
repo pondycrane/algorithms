@@ -1,0 +1,17 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "arr": [1, 2, 3]
+            },
+            "answer": false
+        },
+        "case_2": {
+            "parameters": {
+                "arr": [2, 1, 3]
+            },
+            "answer": true
+        }
+    }
+}
