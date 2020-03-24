@@ -24,7 +24,7 @@ def test_generator(solution_obj, method_name, kwargs, answer, error, verify_meth
                 print("-"*60)
 
                 if type(e).__name__ == 'AssertionError':
-                    raise AssertionError(f"\nInput data: {input_data}\nOutput: {output} != {answer}")
+                    raise AssertionError(f"\nInput data: {str(input_data)}\nOutput: {output} != {answer}")
                 else:
                     raise e
 

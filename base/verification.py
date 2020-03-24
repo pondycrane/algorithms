@@ -1,5 +1,6 @@
 from enum import Enum
 
+import lib.ds_collections.linkedlist as linkedlist
 import lib.ds_collections.treenode as treenode
 
 class Verification(Enum):
@@ -7,6 +8,7 @@ class Verification(Enum):
     UNORDERED_LIST = 'UNORDERED_LIST'
     EQUAL = 'EQUAL'
     TREE = 'TREE'
+    LIST_OF_LINKEDLISTS = 'LIST_OF_LINKEDLISTS'
 
 def verify(output, answer, verify_method):
     if not hasattr(Verification, verify_method):
@@ -21,8 +23,30 @@ def verify(output, answer, verify_method):
         return verify_unordered_list(output, answer)
     elif enum_method == Verification.TREE:
         return verify_tree(output, answer)
+    elif enum_method == Verification.LIST_OF_LINKEDLISTS:
+        return verify_list_of_linkedlists(output, answer)
     else:
         raise Exception(f"{enum_method} not supported")
+
+def verify_list_of_linkedlists(output, answer):
+    if len(output) != len(answer):
+        return False
+    
+    for n1, n2 in zip(output, answer):
+        if isinstance(n1, list):
+            n1 = linkedlist.ListNode.deserialize(n1)
+        if isinstance(n2, list):
+            n2 = linkedlist.ListNode.deserialize(n2)
+
+        while n1 and n2:
+            if n1.val != n2.val:
+                return False
+            n1 = n1.next
+            n2 = n2.next
+        if n1 or n2:
+            return False
+            
+    return True
 
 def verify_tree(output, answer):
     if isinstance(output, treenode.TreeNode):

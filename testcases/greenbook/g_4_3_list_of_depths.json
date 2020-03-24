@@ -1,0 +1,11 @@
+{
+    "verify_method": "LIST_OF_LINKEDLISTS",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "arr": [1, 2, 3]
+            },
+            "answer": [[1], [2, 3]]
+        }
+    }
+}
