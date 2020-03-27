@@ -49,9 +49,9 @@ def verify_list_of_linkedlists(output, answer):
     return True
 
 def verify_tree(output, answer):
-    if isinstance(output, treenode.TreeNode):
+    if output is None or isinstance(output, treenode.TreeNode):
         output = treenode.TreeNode.serialize(output)
-    if isinstance(answer, treenode.TreeNode):
+    if output is None or isinstance(answer, treenode.TreeNode):
         answer = treenode.TreeNode.serialize(answer)
     return output == answer
 
