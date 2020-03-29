@@ -1,0 +1,11 @@
+{
+    "verify_method": "UNORDERED_LIST",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "arr": [2, 1, 3]
+            },
+            "answer": [[2, 1, 3], [2, 3, 1]]
+        }
+    }
+}
