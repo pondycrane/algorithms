@@ -1,0 +1,23 @@
+{
+    "verify_method": "UNORDERED_LIST",
+    "testcases": {
+        "case_1": {
+            "parameters": {
+                "connections": [[0, 1], [1, 2], [3, 1], [0, 3]]
+            },
+            "answer": [[1, 2]]
+        },
+        "case_2": {
+            "parameters": {
+                "connections": [[0, 1]]
+            },
+            "answer": [[0, 1]]
+        },
+        "case_3": {
+            "parameters": {
+                "connections": [[0, 1], [3, 1], [0, 3]]
+            },
+            "answer": []
+        }
+    }
+}
