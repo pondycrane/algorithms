@@ -9,7 +9,7 @@
             },
             "answer": true
         },
-        "case_1": {
+        "case_2": {
             "parameters": {
                 "edges": [[1, 2], [2, 3], [4, 5]],
                 "s": 1,
