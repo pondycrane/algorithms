@@ -14,7 +14,7 @@ class TreeNode:
         queue.append((root, 0))
         while queue:
             node, level = queue.popleft()
-            if not node:
+            if node is None:
                 continue
             while len(res) <= level:
                 res.append(None)
@@ -31,7 +31,7 @@ class TreeNode:
             return None
 
         def build_tree(parent, ind):
-            if ind >= len(arr) or not arr[ind]:
+            if ind >= len(arr) or arr[ind] is None:
                 return
             
             if ind % 2 == 1:
