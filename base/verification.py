@@ -4,7 +4,7 @@ import lib.ds_collections.linkedlist as linkedlist
 import lib.ds_collections.treenode as treenode
 
 class Verification(Enum):
-    UNORDERED_SUBlISTS = 'UNORDERED_SUBLISTS'
+    UNORDERED_SUBLISTS = 'UNORDERED_SUBLISTS'
     UNORDERED_LIST = 'UNORDERED_LIST'
     EQUAL = 'EQUAL'
     TREE = 'TREE'
@@ -15,7 +15,7 @@ def verify(output, answer, verify_method):
         raise ValueError(f"{verify_method} not supported")
 
     enum_method = getattr(Verification, verify_method)
-    if enum_method == Verification.UNORDERED_SUBlISTS:
+    if enum_method == Verification.UNORDERED_SUBLISTS:
         return verify_unordered_sublists(output, answer)
     elif enum_method == Verification.EQUAL:
         return output == answer

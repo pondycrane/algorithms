@@ -1,0 +1,15 @@
+{
+    "verify_method": "UNORDERED_SUBLISTS",
+    "testcases": {
+        "case_1": {
+            "parameters": {
+                "strs": ["eat", "tea", "tan", "ate", "nat", "bat"]
+            },
+            "answer": [
+                ["ate","eat","tea"],
+                ["nat","tan"],
+                ["bat"]
+            ]
+        }
+    }
+}
