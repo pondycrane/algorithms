@@ -7,8 +7,20 @@ class Solution(base.solution.Solution):
     def group_anagrams(self, strs: typing.List[str]) -> typing.List[typing.List[str]]:
         res = collections.defaultdict(list)
         for word in strs:
-            res[str(collections.Counter(sorted(word)))].append(word)
+            res[''.join(sorted(word))].append(word)
         
+        return list(res.values())
+
+    def group_anagrams(self, strs: typing.List[str]) -> typing.List[typing.List[str]]:
+        res = collections.defaultdict(list)
+        def build_key(word):
+            count = [0] * 26
+            for c in word:
+                count[ord(c) - ord('a')] += 1
+            return ','.join(map(str, count))
+        
+        for word in strs:
+            res[build_key(word)].append(word)
         return list(res.values())
 
 """
