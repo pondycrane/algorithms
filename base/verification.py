@@ -9,6 +9,7 @@ class Verification(Enum):
     EQUAL = 'EQUAL'
     TREE = 'TREE'
     LIST_OF_LINKEDLISTS = 'LIST_OF_LINKEDLISTS'
+    LINKEDLIST = 'LINKEDLIST'
 
 def verify(output, answer, verify_method):
     if not hasattr(Verification, verify_method):
@@ -23,6 +24,8 @@ def verify(output, answer, verify_method):
         return verify_unordered_list(output, answer)
     elif enum_method == Verification.TREE:
         return verify_tree(output, answer)
+    elif enum_method == Verification.LINKEDLIST:
+        return verify_linkedlist(output, answer)
     elif enum_method == Verification.LIST_OF_LINKEDLISTS:
         return verify_list_of_linkedlists(output, answer)
     else:
@@ -33,19 +36,23 @@ def verify_list_of_linkedlists(output, answer):
         return False
     
     for n1, n2 in zip(output, answer):
-        if isinstance(n1, list):
-            n1 = linkedlist.ListNode.deserialize(n1)
-        if isinstance(n2, list):
-            n2 = linkedlist.ListNode.deserialize(n2)
+        if not verify_linkedlist(n1, n2):
+            return False  
+    return True
 
-        while n1 and n2:
-            if n1.val != n2.val:
-                return False
-            n1 = n1.next
-            n2 = n2.next
-        if n1 or n2:
+def verify_linkedlist(output, answer):
+    if isinstance(output, list):
+        output = linkedlist.ListNode.deserialize(output)
+    if isinstance(answer, list):
+        answer = linkedlist.ListNode.deserialize(answer)
+
+    while output and answer:
+        if output.val != answer.val:
             return False
-            
+        output = output.next
+        answer = answer.next
+    if output or answer:
+        return False
     return True
 
 def verify_tree(output, answer):
