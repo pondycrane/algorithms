@@ -1,0 +1,54 @@
+{
+    "verify_method": "EQUAL",
+    "testcases": {
+        "case_1": {
+            "parameters": {
+                "S": "ab#c",
+                "T": "ad#c"
+            },
+            "answer": true
+        },
+        "case_2": {
+            "parameters": {
+                "S": "ab##",
+                "T": "c#d#"
+            },
+            "answer": true
+        },
+        "case_3": {
+            "parameters": {
+                "S": "a##c",
+                "T": "#a#c"
+            },
+            "answer": true
+        },
+        "case_4": {
+            "parameters": {
+                "S": "a#c",
+                "T": "b"
+            },
+            "answer": false
+        },
+        "case_5": {
+            "parameters": {
+                "S": "y#fo##f",
+                "T": "y#f#o##f"
+            },
+            "answer": true
+        },
+        "case_6": {
+            "parameters": {
+                "S": "bbbextm",
+                "T": "bbb#extm"
+            },
+            "answer": false
+        },
+        "case_7": {
+            "parameters": {
+                "S": "nzp#o#g",
+                "T": "b#nzp#o#g"
+            },
+            "answer": true
+        }
+    }
+}
