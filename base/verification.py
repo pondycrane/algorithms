@@ -10,6 +10,7 @@ class Verification(Enum):
     TREE = 'TREE'
     LIST_OF_LINKEDLISTS = 'LIST_OF_LINKEDLISTS'
     LINKEDLIST = 'LINKEDLIST'
+    DICTIONARY = 'DICTIONARY'
 
 def verify(output, answer, verify_method):
     if not hasattr(Verification, verify_method):
@@ -28,8 +29,32 @@ def verify(output, answer, verify_method):
         return verify_linkedlist(output, answer)
     elif enum_method == Verification.LIST_OF_LINKEDLISTS:
         return verify_list_of_linkedlists(output, answer)
+    elif enum_method == Verification.DICTIONARY:
+        return verify_dictionaries(output, answer)
     else:
         raise Exception(f"{enum_method} not supported")
+
+def verify_dictionaries(output, answer):
+    if not output and not answer:
+        return True
+    
+    if not isinstance(output, dict) or not isinstance(answer, dict):
+        return False
+
+    if len(output) != len(answer):
+        return False
+    
+    for key in answer:
+        if key not in output:
+            return False
+        
+        if not isinstance(answer[key], dict):
+            if output[key] != answer[key]:
+                return False
+        elif not verify_dictionaries(output[key], answer[key]):
+            return False
+
+    return True
 
 def verify_list_of_linkedlists(output, answer):
     if len(output) != len(answer):

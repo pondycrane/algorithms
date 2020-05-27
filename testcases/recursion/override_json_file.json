@@ -1,0 +1,87 @@
+{
+    "verify_method": "DICTIONARY",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "original": {
+                    "animals": {
+                        "birds": 4,
+                        "shit": {
+                            "puppies": {
+                                "fluffy": 3
+                            }
+                        }
+                    }
+                },
+                "override": {
+                    "animals": {
+                        "shit": {
+                            "chihuahua": 10,
+                            "puppies": {
+                                "fluffy": 3,
+                                "non fluffy": 4
+                            },
+                            "bastard": 5
+                        }
+                    },
+                    "plants": {
+                        "flowers": {
+                            "roses": 10
+                        }
+                    }
+                }
+            },
+            "answer": {
+                "animals": {
+                    "birds": 4,
+                    "shit": {
+                        "chihuahua": 10,
+                        "puppies": {
+                            "fluffy": 3,
+                            "non fluffy": 4
+                        },
+                        "bastard": 5
+                    }
+                },
+                "plants": {
+                    "flowers": {
+                        "roses": 10
+                    }
+                }
+            }
+        },
+        "case_2": {
+            "parameters": {
+                "original": {
+                    "bla": 4
+                },
+                "override": {
+                    "bla": 2,
+                    "chu": 10
+                }
+            },
+            "answer": {
+                "bla": 2,
+                "chu": 10
+            }
+        },
+        "case_3": {
+            "parameters": {
+                "original": null,
+                "override": null
+            },
+            "answer": null
+        },
+        "case_4": {
+            "parameters": {
+                "original": null,
+                "override": {
+                    "bla": 1
+                }
+            },
+            "answer": {
+                "bla": 1
+            }
+        }
+    }
+}
