@@ -11,9 +11,8 @@ class Solution(base.solution.Solution):
             return itertools.zip_longest(reversed(num1), reversed(num2), fillvalue='0')
         
         for n1, n2 in num_gen(num1, num2):
-            sumord = (ord(n1) + ord(n2)) % base + carry
-            result.append(str(sumord % 10))
-            carry = sumord // 10
+            carry, mod = divmod((ord(n1) + ord(n2)) % base + carry, 10)
+            result.append(str(mod))
         
         if carry > 0:
             result.append(str(carry))

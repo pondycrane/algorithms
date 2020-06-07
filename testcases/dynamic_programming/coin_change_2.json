@@ -1,0 +1,26 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "amount": 5,
+                "coins": [1, 2, 5]
+            },
+            "answer": 4
+        },
+        "case_2": {
+            "parameters": {
+                "amount": 3,
+                "coins": [2]
+            },
+            "answer": 0
+        },
+        "case_3": {
+            "parameters": {
+                "amount": 10,
+                "coins": [10]
+            },
+            "answer": 1
+        }
+    }
+}
