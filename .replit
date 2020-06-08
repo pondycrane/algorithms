@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=dynamic_programming,coin_change_2"
+run = "python3 main.py --problem=bit_manipulation,power_of_two"
