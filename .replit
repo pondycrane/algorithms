@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=bit_manipulation,power_of_two"
+run = "python3 main.py --problem=array,verifying_an_alien_dictionary"

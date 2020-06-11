@@ -1,0 +1,26 @@
+{
+    "verify_method": "EQUAL",
+    "testcases": {
+        "case_1": {
+            "parameters": {
+                "words": ["hello","leetcode"],
+                "order": "hlabcdefgijkmnopqrstuvwxyz"
+            },
+            "answer": true
+        },
+        "case_2": {
+            "parameters": {
+                "words": ["word","world","row"],
+                "order": "worldabcefghijkmnpqstuvxyz"
+            },
+            "answer": false
+        },
+        "case_3": {
+            "parameters": {
+                "words": ["apple","app"],
+                "order": "abcdefghijklmnopqrstuvwxyz"
+            },
+            "answer": false
+        }
+    }
+}
