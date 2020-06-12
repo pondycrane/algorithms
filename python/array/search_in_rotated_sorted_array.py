@@ -1,5 +1,4 @@
 import typing
-import bisect
 
 import base.solution
 
@@ -44,8 +43,11 @@ class Solution(base.solution.Solution):
             else:
                 return bisect_w_rotate(mid + 1, right, rotation)
 
-        rotation = ident_rotate(0, len(nums))
-        return bisect_w_rotate(0, len(nums), rotation)
+        return bisect_w_rotate(
+            0,
+            len(nums),
+            ident_rotate(0, len(nums))
+        )
 
 """
 33. Search in Rotated Sorted Array
