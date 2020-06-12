@@ -24,25 +24,8 @@ class Solution(base.solution.Solution):
             else:
                 return ident_rotate(mid + 1, right)
 
-        # 2. Binary search the ind considering the increment
-        def bisect_w_rotate(left, right, rotation):
-            act_l = (left + rotation) % len(nums)
-            if left > right:
-                return -1
-            elif left == right:
-                return -1 if nums[act_l] != target else act_l
-            
-            mid = (right + left) // 2
-            act_mid = (mid + rotation) % len(nums)
-                
-            if nums[act_mid] == target:
-                return act_mid
-            
-            if nums[act_mid] > target:
-                return bisect_w_rotate(left, mid, rotation)
-            else:
-                return bisect_w_rotate(mid + 1, right, rotation)
-        
+        # 2. Binary search based on which side target is on
+        # relative to the rotation index
         def binary_search(left, right):
             while left < right:
                 mid = (right - left) // 2 + left
