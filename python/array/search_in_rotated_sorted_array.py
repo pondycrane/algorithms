@@ -42,12 +42,24 @@ class Solution(base.solution.Solution):
                 return bisect_w_rotate(left, mid, rotation)
             else:
                 return bisect_w_rotate(mid + 1, right, rotation)
+        
+        def binary_search(left, right):
+            while left < right:
+                mid = (right - left) // 2 + left
+                if nums[mid] < target:
+                    left = mid + 1
+                else:
+                    right = mid
 
-        return bisect_w_rotate(
-            0,
-            len(nums),
-            ident_rotate(0, len(nums))
-        )
+            if left >= len(nums) or nums[left] != target:
+                return -1
+            return left
+
+        rotation = ident_rotate(0, len(nums))
+        if nums[0] > target:
+            return binary_search(rotation, len(nums))
+        else:
+            return binary_search(0, rotation)
 
 """
 33. Search in Rotated Sorted Array
