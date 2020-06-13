@@ -43,6 +43,28 @@ class Solution(base.solution.Solution):
             return binary_search(rotation, len(nums))
         else:
             return binary_search(0, rotation)
+        
+
+    def search_in_rotated_sorted_array(self, nums: typing.List[int], target: int) -> int:
+        def binary_search_w_rotation(left, right):
+            while left <= right: # May not be a target, <=
+                mid = (right - left) // 2 + left
+                if nums[mid] == target:
+                    return mid
+                if nums[left] <= nums[mid]: # left is sorted
+                    if nums[left] <= target < nums[mid]:
+                        right = mid - 1
+                    else:
+                        left = mid + 1
+                else: # right is sorted
+                    if nums[mid] < target <= nums[right]:
+                        left = mid + 1
+                    else:
+                        right = mid - 1
+            
+            return -1
+        
+        return binary_search_w_rotation(0, len(nums) - 1)
 
 """
 33. Search in Rotated Sorted Array
