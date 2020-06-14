@@ -1,0 +1,19 @@
+{
+    "verify_method": "EQUAL",
+    "testcases": {
+        "case_1": {
+            "parameters": {
+                "l1": [1, 2, 3],
+                "l2": [2, 3, 4]
+            },
+            "answer": [2, 3]
+        },
+        "case_2": {
+            "parameters": {
+                "l1": [1, 2, 3],
+                "l2": [4]
+            },
+            "answer": []
+        }
+    }
+}

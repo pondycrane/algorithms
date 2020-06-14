@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=dynamic_programming,largest_divisible_subset"
+run = "python3 main.py --problem=array,intersection_of_two_sorted_arrays"
