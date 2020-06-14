@@ -1,28 +1,47 @@
 import copy
+import functools
 import json
 import unittest
 import traceback
 import sys
+import time
 
 import base.testcases
 import base.verification as verification
 import lib.path_utils
 
 
+count = 0
+
+def benchmarking(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        global count
+        count += 1
+        print(f'\n\n-Start---Running testcase {count!r}: {args!r}, {kwargs!r}')
+        print(f'-Outputs-')
+        start = time.time()
+        output = func(*args, **kwargs)
+        end = time.time()
+        print(f'-Done----{(end - start) * 1000!r} milisec, output: {output!r}\n')
+        return output
+
+    return wrapper
+
+
 def test_generator(solution_obj, method_name, kwargs, answer, error, verify_method):
     def test(self):
         input_data = copy.deepcopy(kwargs)
         try:
-            output = getattr(solution_obj, method_name)(**kwargs)
+            wrapped = benchmarking(
+                getattr(solution_obj, method_name)
+            )
+            output = wrapped(**kwargs)
             assert verification.verify(output, answer, verify_method)
         except Exception as e:
             if error is not None:
                 assert type(e).__name__ == error, f"Error {e} is not expected {error}. Error msg: {e}"
             else:
-                print("-"*60)
-                traceback.print_exc(limit=3, file=sys.stdout)
-                print("-"*60)
-
                 if type(e).__name__ == 'AssertionError':
                     raise AssertionError(f"\nInput data: {str(input_data)}\nOutput: {output} != {answer}")
                 else:
