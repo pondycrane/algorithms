@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=array,intersection_of_two_sorted_arrays"
+run = "python3 main.py --problem=array,kth_largest_element_in_an_array"
