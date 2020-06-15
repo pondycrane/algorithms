@@ -21,7 +21,7 @@ class Solution(base.solution.Solution):
             pivot = i = start
             j = i + 1
             while j <= end:
-                if nums[j] < nums[pivot]:
+                if nums[j] <= nums[pivot]:
                     i += 1
                     nums[i], nums[j] = nums[j], nums[i]
                 j += 1
