@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=array,k_closest_points_to_origin"
+run = "python3 main.py --problem=linkedlist,merge_k_sorted_lists"
