@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=array,merge_k_sorted_arrays"
+run = "python3 main.py --problem=array,group_the_numbers"
