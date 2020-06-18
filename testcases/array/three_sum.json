@@ -1,0 +1,11 @@
+{
+    "verify_method": "UNORDERED_SUBLISTS",
+    "testcases": {
+        "case_1": {
+            "parameters": {
+                "arr":  [10, 3, -4, 1, -6, 9]
+            },
+            "answer": [[10,-4,-6], [3,-4,1]]
+        }
+    }
+}
