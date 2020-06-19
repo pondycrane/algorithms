@@ -1,0 +1,11 @@
+{
+    "verify_method": "EQUAL",
+    "testcases": {
+        "case_1": {
+            "parameters": {
+                "balls": ["G", "B", "G", "G", "R", "B", "R", "G"]
+            },
+            "answer": ["R", "R", "G", "G", "G", "G", "B", "B"]
+        }
+    }
+}
