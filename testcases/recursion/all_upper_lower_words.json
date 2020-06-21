@@ -1,0 +1,33 @@
+{
+    "verify_method": "UNORDERED_LIST",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "string": "a1b1"
+            },
+            "answer": [
+                "a1b1",
+                "A1b1",
+                "A1B1",
+                "a1B1"
+            ]
+        },
+        "case_2": {
+            "parameters": {
+                "string": "a12b"
+            },
+            "answer": [
+                "a12b",
+                "A12b",
+                "A12B",
+                "a12B"
+            ]
+        },
+        "case_3": {
+            "parameters": {
+                "string": ""
+            },
+            "answer": []
+        }
+    }
+}

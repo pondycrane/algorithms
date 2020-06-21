@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=array,nuts_and_bolts"
+run = "python3 main.py --problem=recursion,all_upper_lower_words"
