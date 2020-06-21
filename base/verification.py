@@ -5,6 +5,7 @@ import lib.ds_collections.treenode as treenode
 
 class Verification(Enum):
     UNORDERED_SUBLISTS = 'UNORDERED_SUBLISTS'
+    SUBSETS = 'SUBSETS' # [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]] != [[1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3], []]
     UNORDERED_LIST = 'UNORDERED_LIST'
     EQUAL = 'EQUAL'
     TREE = 'TREE'
@@ -31,6 +32,8 @@ def verify(output, answer, verify_method):
         return verify_list_of_linkedlists(output, answer)
     elif enum_method == Verification.DICTIONARY:
         return verify_dictionaries(output, answer)
+    elif enum_method == Verification.SUBSETS:
+        return verify_subsets(output, answer)
     else:
         raise Exception(f"{enum_method} not supported")
 
@@ -89,6 +92,16 @@ def verify_tree(output, answer):
 
 def verify_unordered_list(output, answer):
     return sorted(output) == sorted(answer)
+
+def verify_subsets(output, answer):
+    if not output and not answer:
+        return output == answer
+    
+    for data in [output, answer]:
+        for l in data:
+            l.sort()
+        data.sort()
+    return output == answer
 
 def verify_unordered_sublists(output, answer):
     if not output and not answer:
