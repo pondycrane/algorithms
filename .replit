@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=recursion,phone_number_variations"
+run = "python3 main.py --problem=recursion,subset_sum"

@@ -1,0 +1,14 @@
+{
+    "verify_method": "SUBSETS",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "arr": [7, 3, 4],
+                "target": 7
+            },
+            "answer": [
+                [3, 4], [7]
+            ]
+        }
+    }
+}
