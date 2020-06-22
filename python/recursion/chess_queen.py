@@ -15,6 +15,8 @@ class Solution(base.solution.Solution):
             return True
         
         def last_valid(cols):
+            if cols[-1] == -1:
+                return True
             for ind, li in enumerate(cols[:-1]):
                 if valid_queens(ind, li, len(cols) - 1, cols[-1]) == False:
                     return False
@@ -23,28 +25,35 @@ class Solution(base.solution.Solution):
         def cols_2_board(cols):
             res = []
             for queens in cols:
-                board = []
-                for c in queens:
-                    board.append(
-                        ''.join(['Q' if i == c else '.' for i in range(len(queens))])
+                chessres = []
+                for r in range(0, board):
+                    chessres.append(
+                        ''.join(['Q' if r < len(queens) and queens[r] == i else '.' for i in range(board)])
                     )
-                res.append(board)
+                res.append(chessres)
             return res
 
         def n_queens(cols, index):
             # Back tracing
-            if index > 0 and last_valid(cols) == False:
+            if cols and last_valid(cols) == False:
                 return
             
             # Base case
-            if board == len(cols):
+            if queen > 0 and index == queen:
                 result.append(cols[:])
                 return
+            if len(cols) == board:
+                return
             
+            # Use queen
             for i in range(0, board):
                 cols.append(i)
                 n_queens(cols, index + 1)
                 cols.pop()
+            # Not use queen
+            cols.append(-1)
+            n_queens(cols, index)
+            cols.pop()
             
         n_queens([], 0)
         return cols_2_board(result)

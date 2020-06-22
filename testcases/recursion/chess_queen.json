@@ -17,6 +17,14 @@
                 ".Q.."
                 ]
             ]
+        },
+        "case_2": {
+            "parameters": {
+                "queen": 0,
+                "board": 4
+            },
+            "answer": [
+            ]
         }
     }
 }
