@@ -1,0 +1,22 @@
+{
+    "verify_method": "UNORDERED_LIST",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "queen": 4,
+                "board": 4
+            },
+            "answer": [
+                [".Q..",
+                "...Q",
+                "Q...",
+                "..Q."],
+                ["..Q.",
+                "Q...",
+                "...Q",
+                ".Q.."
+                ]
+            ]
+        }
+    }
+}
