@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=recursion,chess_queen"
+run = "python3 main.py --problem=recursion,generate_all_expressions"

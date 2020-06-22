@@ -1,0 +1,26 @@
+{
+    "verify_method": "UNORDERED_LIST",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "s": "222",
+                "target": 24
+            },
+            "answer": ["22+2", "2+22"]
+        },
+        "case_2": {
+            "parameters": {
+                "s": "65708450",
+                "target": 87688
+            },
+            "answer": []
+        },
+        "case_3": {
+            "parameters": {
+                "s": "1234",
+                "target": 11
+            },
+            "answer": ["1+2*3+4"]
+        }
+    }
+}
