@@ -6,6 +6,12 @@
                 "s": "abracadabra"
             },
             "answer": [ "a|b|r|a|c|a|d|a|b|r|a", "a|b|r|a|c|ada|b|r|a", "a|b|r|aca|d|a|b|r|a"]
+        },
+        "case_2": {
+            "parameters": {
+                "s": "baca"
+            },
+            "answer": [ "b|a|c|a", "b|aca"]
         }
     }
 }
