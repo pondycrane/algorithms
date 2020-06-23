@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=recursion,palindromic_decomposition_of_a_string"
+run = "python3 main.py --problem=recursion,n_queen_problem"

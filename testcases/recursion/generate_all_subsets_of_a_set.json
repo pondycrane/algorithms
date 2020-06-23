@@ -1,0 +1,13 @@
+{
+    "verify_method": "UNORDERED_LIST",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "s": "xy"
+            },
+            "answer": [
+                "", "x", "y", "xy"
+            ]
+        }
+    }
+}

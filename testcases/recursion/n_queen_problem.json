@@ -1,0 +1,28 @@
+{
+    "verify_method": "UNORDERED_LIST",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "n": 4
+            },
+            "answer": [
+                ["-q--",
+                "---q",
+                "q---",
+                "--q-"],
+                ["--q-",
+                "q---",
+                "---q",
+                "-q--"
+                ]
+            ]
+        },
+        "case_2": {
+            "parameters": {
+                "n": 0
+            },
+            "answer": [
+            ]
+        }
+    }
+}
