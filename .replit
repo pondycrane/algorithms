@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=recursion,n_queen_problem"
+run = "python3 main.py --problem=recursion,binary_trees_with_n_nodes"

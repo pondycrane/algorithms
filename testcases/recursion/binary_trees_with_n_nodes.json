@@ -1,0 +1,23 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "n": 12
+            },
+            "answer": 208012
+        },
+        "case_2": {
+            "parameters": {
+                "n": 3
+            },
+            "answer": 5
+        },
+        "case_3": {
+            "parameters": {
+                "n": 2
+            },
+            "answer": 2
+        }
+    }
+}
