@@ -52,25 +52,35 @@ class Solution(base.solution.Solution):
             
             while left < right:
                 if s[left] != s[right]:
+                    memo[(left, right)] = False
                     memo[key] = False
                     return memo[key]
                 left += 1
                 right -= 1
             memo[key] = True
             return memo[key]
-        
-        def recursion(slate, pos):
-            # Basecase
+
+        memo2 = {}
+        def valid_palindroms(pos):
+            if pos in memo2:
+                return memo2[pos]
+            
             if pos == len(s):
-                result.append('|'.join(slate))
-                return
+                return []
             
+            res = []
             for j in range(pos, len(s)):
-                # Backtracking
                 if ispalindrom(pos, j):
-                    slate.append(s[pos:j + 1])
-                    recursion(slate, j + 1)
-                    slate.pop()
+                    substr = s[pos: j + 1]
+                    next_vp = valid_palindroms(j + 1)
+                    if not next_vp:
+                        res.append(substr)
+                    else:
+                        res.extend([
+                            f'{substr}|{string}' for string in next_vp
+                        ])
             
-        recursion([], 0)
-        return result
+            memo2[pos] = res
+            return memo2[pos]
+            
+        return valid_palindroms(0)
