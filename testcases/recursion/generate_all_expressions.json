@@ -21,6 +21,13 @@
                 "target": 11
             },
             "answer": ["1+2*3+4"]
+        },
+        "case_4": {
+            "parameters": {
+                "s": "05",
+                "target": 0
+            },
+            "answer": ["0*5"]
         }
     }
 }

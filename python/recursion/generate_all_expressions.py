@@ -46,3 +46,34 @@ class Solution(base.solution.Solution):
         recursion([], 0)
         return result
     
+    """
+    With backgracking. To add backtracking, we save the current
+    sum as attribute. We also save prev value for multiplication use.
+    """
+    def generate_all_expressions(self, s: str, target: int) -> typing.List[str]:
+        result = []
+        def recursion(slate, pos, cur_sum, prev):
+            # Backtracking, check 0 in case the value decrease
+            if 0 < target < cur_sum and '0' not in s[pos:]:
+                return
+
+            # Base case
+            if pos == len(s):
+                if cur_sum == target:
+                    result.append(slate)
+                return
+            
+            for j in range(pos, len(s)):
+                intstr = s[pos:j + 1]
+                integer = int(intstr)
+                if pos == 0:
+                    # operators cannot be the start
+                    recursion(intstr, j + 1, integer, integer)
+                else:
+                    # use +
+                    recursion(slate + '+' + intstr, j + 1, cur_sum + integer, integer)
+                    # use *
+                    recursion(slate + '*' + intstr, j + 1, cur_sum - prev + prev * integer, prev * integer)
+
+        recursion('', 0, 0, 0)
+        return result
