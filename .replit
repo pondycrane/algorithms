@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=recursion,check_tree_has_sequence"
+run = "python3 main.py --problem=recursion,zigzag_conversion"

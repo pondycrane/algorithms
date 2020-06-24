@@ -1,0 +1,26 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "s": "ABCD",
+                "numRows": 4
+            },
+            "answer": "ABCD"
+        },
+        "case_2": {
+            "parameters": {
+                "s": "PAYPALISHIRING",
+                "numRows": 3
+            },
+            "answer": "PAHNAPLSIIGYIR"
+        },
+        "case_3": {
+            "parameters": {
+                "s": "PAYPALISHIRING",
+                "numRows": 4
+            },
+            "answer": "PINALSIGYAHRPI"
+        }
+    }
+}
