@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 main.py --problem=recursion,binary_trees_with_n_nodes"
+run = "python3 main.py --problem=recursion,check_tree_has_sequence"
