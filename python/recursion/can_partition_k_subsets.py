@@ -41,3 +41,31 @@ class Solution(base.solution.Solution):
             return False
             
         return partitionable(count, 0, p_target, k)
+
+    """
+    Use recursion iteration saves time and the space for new dict/array creation
+    """
+    def can_partition_k_subsets(self, nums: typing.List[int], k: int) -> bool:
+        if not nums: return k==0
+        target = sum(nums) / k
+        if target % 1 != 0: return False
+        visited = [False] * len(nums)
+
+        def partitionable(slate, pos, k):
+            if slate > target: return False
+            if pos == len(nums): return False
+            if k == 1: return True # Don't need to go through the last segment
+            if slate == target: return partitionable(0, 0, k - 1)
+
+            # skip pos
+            if partitionable(slate, pos + 1, k): return True
+
+            # include
+            if not visited[pos]:
+                visited[pos] = True
+                if partitionable(slate + nums[pos], pos + 1, k): return True
+                visited[pos] = False
+            return False
+
+        return partitionable(0, 0, k)
+        
