@@ -1,0 +1,29 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "board": ["O  ", "   ", "   "]
+            },
+            "answer": false
+        },
+        "case_2": {
+            "parameters": {
+                "board": ["XOX", " X ", "   "]
+            },
+            "answer": false
+        },
+        "case_3": {
+            "parameters": {
+                "board": ["XXX", "   ", "OOO"]
+            },
+            "answer": false
+        },
+        "case_4": {
+            "parameters": {
+                "board": ["XOX", "O O", "XOX"]
+            },
+            "answer": true
+        }
+    }
+}
