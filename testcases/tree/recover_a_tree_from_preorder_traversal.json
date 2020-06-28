@@ -1,0 +1,23 @@
+{
+    "verify_method": "TREE_STRICT",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "S": "1-2--3--4-5--6--7"
+            },
+            "answer": [1,2,5,3,4,6,7]
+        },
+        "case_2": {
+            "parameters": {
+                "S": "1-2--3---4-5--6---7"
+            },
+            "answer": [1,2,5,3,null,6,null,4,null,null,null,7]
+        },
+        "case_3": {
+            "parameters": {
+                "S": "1-401--349---90--88"
+            },
+            "answer": [1,401,null,349,88,null,null,90]
+        }
+    }
+}

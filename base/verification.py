@@ -9,6 +9,7 @@ class Verification(Enum):
     UNORDERED_LIST = 'UNORDERED_LIST'
     EQUAL = 'EQUAL'
     TREE = 'TREE'
+    TREE_STRICT = 'TREE_STRICT'
     LIST_OF_LINKEDLISTS = 'LIST_OF_LINKEDLISTS'
     LINKEDLIST = 'LINKEDLIST'
     DICTIONARY = 'DICTIONARY'
@@ -26,6 +27,8 @@ def verify(output, answer, verify_method):
         return verify_unordered_list(output, answer)
     elif enum_method == Verification.TREE:
         return verify_tree(output, answer)
+    elif enum_method == Verification.TREE_STRICT:
+        return verify_tree_strict(output, answer)
     elif enum_method == Verification.LINKEDLIST:
         return verify_linkedlist(output, answer)
     elif enum_method == Verification.LIST_OF_LINKEDLISTS:
@@ -89,6 +92,19 @@ def verify_tree(output, answer):
     if output is None or isinstance(answer, treenode.TreeNode):
         answer = treenode.TreeNode.serialize(answer)
     return output == answer
+
+def verify_tree_strict(output, answer):
+    if not isinstance(answer, treenode.TreeNode):
+        answer = treenode.TreeNode.deserialize(answer)
+    def equals(t1, t2):
+        if t1 is None and t2 is None:
+            return True
+        if t1 is None or t2 is None:
+            return False
+        if t1.val != t2.val:
+            return False
+        return equals(t1.left, t2.left) and equals(t1.right, t2.right)
+    return equals(output, answer)
 
 def verify_unordered_list(output, answer):
     return sorted(output) == sorted(answer)

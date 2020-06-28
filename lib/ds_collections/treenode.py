@@ -7,6 +7,25 @@ class TreeNode:
         self.right = None
 
     @classmethod
+    def collect_data(cls, node, level, index, res):
+        if node is None:
+            return
+        while len(res) < level + 1:
+            res.append([])
+        ind = index - 2**level + 1
+        while len(res[level]) < ind + 1:
+            res[level].append(None)
+        res[level][ind] = node.val
+        cls.collect_data(node.left, level + 1, index * 2 + 1, res)
+        cls.collect_data(node.right, level + 1, index * 2 + 2, res)
+
+    def __repr__(self):
+        data = []
+        TreeNode.collect_data(self, 0, 0, data)
+        string = '\n' + "\n".join([" ".join(map(str, row)) for row in data])
+        return f'{string}'
+
+    @classmethod
     def serialize(cls, root):
         res = []
 
