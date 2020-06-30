@@ -1,0 +1,12 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "root": [5,4,8,11,null,13,4,7,2,null,null,null,1],
+                "sum": 22
+            },
+            "answer": true
+        }
+    }
+}

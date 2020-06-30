@@ -1,0 +1,11 @@
+{
+    "verify_method": "TREE_STRICT",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "nums": [-10,-3,0,5,9]
+            },
+            "answer": [0,-10,5,null,-3,null,9]
+        }
+    }
+}
