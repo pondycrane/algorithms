@@ -1,0 +1,17 @@
+{
+    "verify_method": "TREE_STRICT",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "root": [1,2,3,4,5,null,null,6,7]
+            },
+            "answer": [6,7,4,null,null,5,2,null,null,null,null,null,null,3,1]
+        },
+        "case_2": {
+            "parameters": {
+                "root": [1,2,3]
+            },
+            "answer": [2,3,1]
+        }
+    }
+}
