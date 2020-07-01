@@ -1,0 +1,12 @@
+{
+    "verify_method": "TREE_STRICT",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "preorder": [3,9,20,15,7],
+                "inorder": [9,3,15,20,7]
+            },
+            "answer": [3,9,20,null,null,15,7]
+        }
+    }
+}
