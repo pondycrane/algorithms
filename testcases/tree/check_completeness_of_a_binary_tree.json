@@ -1,0 +1,29 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "root": [1,2,3,4,5,6]
+            },
+            "answer": true
+        },
+        "case_2": {
+            "parameters": {
+                "root": [1,2,3,4,5,null,7]
+            },
+            "answer": false
+        },
+        "case_3": {
+            "parameters": {
+                "root": [1,2,3,4,5,6,7,8]
+            },
+            "answer": true
+        },
+        "case_4": {
+            "parameters": {
+                "root": [1,2,3,4,5,6,7,8,9,10,11,12,13,null,null,15]
+            },
+            "answer": false
+        }
+    }
+}
