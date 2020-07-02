@@ -1,0 +1,40 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "root1": [2,1,4],
+                "root2": [1,0,3]
+            },
+            "answer": [0,1,1,2,3,4]
+        },
+        "case_2": {
+            "parameters": {
+                "root1": [0,-10,10],
+                "root2": [5,1,7,0,2]
+            },
+            "answer": [-10,0,0,1,2,5,7,10]
+        },
+        "case_3": {
+            "parameters": {
+                "root1": [],
+                "root2": [5,1,7,0,2]
+            },
+            "answer": [0,1,2,5,7]
+        },
+        "case_4": {
+            "parameters": {
+                "root1": [0,-10,10],
+                "root2": []
+            },
+            "answer": [-10,0,10]
+        },
+        "case_5": {
+            "parameters": {
+                "root1": [1,null,8],
+                "root2": [8,1]
+            },
+            "answer": [1,1,8,8]
+        }
+    }
+}
