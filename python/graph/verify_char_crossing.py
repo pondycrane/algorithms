@@ -66,18 +66,32 @@ class Solution(base.solution.Solution):
         # Start bfs, make sure each adj vector has different mark
         # 1 should have an adj vector of 0, and 0 should have an adj vector of 1
         starter = next(iter(graph))
-        q = collections.deque([starter])
-        state = {starter: True}
-        while q:
-            c = q.popleft()
-            for nc in graph[c]:
-                if nc in state:
-                    if state[nc] == state[c]:
-                        return False
-                else:
-                    state[nc] = not state[c]
-                    q.append(nc)
-        return True
+#        q = collections.deque([starter])
+#        state = {starter: True}
+#        while q:
+#            c = q.popleft()
+#            for nc in graph[c]:
+#                if nc in state:
+#                    if state[nc] == state[c]:
+#                        return False
+#                else:
+#                    state[nc] = not state[c]
+#                    q.append(nc)
+#        return True
+        visited = collections.defaultdict(bool)
+        def dfs(curr):
+            visited[curr] = True
+            
+            for nxt in graph[curr]:
+                if not visited[nxt]:
+                    visited[nxt] = not visited[curr]
+                    if dfs(nxt): return True
+                elif visited[nxt] == visited[curr]:
+                    return False
+                    
+            return False
+        
+        return dfs(starter)
 
 
 
