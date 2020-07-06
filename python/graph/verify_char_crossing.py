@@ -45,7 +45,8 @@ class Solution(base.solution.Solution):
         if not graph:
             return True
 
-        # Start bfs
+        # Start bfs, make sure each adj vector has different mark
+        # 1 should have an adj vector of 0, and 0 should have an adj vector of 1
         starter = list(graph.keys())[0]
         q = collections.deque([starter])
         state = {starter: 1}
