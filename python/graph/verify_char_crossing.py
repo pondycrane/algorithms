@@ -32,6 +32,24 @@ Explination:
 class Solution(base.solution.Solution):
     """
     Intuition. Need to identify the key relationship between chars that makes this problem a graph problem.
+    Dependency can be identified if all bridges are on the same side. For case 2,
+    bridge d depends on the bridges of e and c;
+    bridge a depends on the bridges of e and c;
+    bridge b depends on the bridge of e;
+    bridge e depends on the bridges of d, a, and b;
+    bridge c depends on the bridges of a and d;
+    bridge a depends on the bridges of c and e;
+         ___________
+   _____|_______    |
+  |  ___|_____  |   |
+  | |  _|_   _|_|_  |
+  | | | | | | | | | |
+  d a b e b c a d c e
+
+    a graph can be built: {'d': ['e', 'c'], 'a': ['e', 'c'], 'b': ['e'], 'e': ['b', 'a', 'd'], 'c': ['a', 'd']}
+    
+    We know that each adjecent vectors are compatible if they are on different sides.
+    We can confirm with a BFS walk, and check the current vector has the opposite sign of its parent, and no collusion is found.
     """
     def verify_char_crossing(self, chars: str) -> bool:
         indmap = collections.defaultdict(list)
@@ -44,7 +62,7 @@ class Solution(base.solution.Solution):
             graph[c] = [cn for cn, count in collections.Counter(chars[s + 1: e]).items() if count == 1]
         if not graph:
             return True
-
+        print(graph)
         # Start bfs, make sure each adj vector has different mark
         # 1 should have an adj vector of 0, and 0 should have an adj vector of 1
         starter = list(graph.keys())[0]
