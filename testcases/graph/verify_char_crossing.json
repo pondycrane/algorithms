@@ -7,11 +7,41 @@
             },
             "answer": false
         },
-        "small_sample_with_loop": {
+        "case_2": {
             "parameters": {
                 "chars": "dabebcadce"
             },
             "answer": true
+        },
+        "case_3": {
+            "parameters": {
+                "chars": ""
+            },
+            "answer": true
+        },
+        "case_4": {
+            "parameters": {
+                "chars": "abccba"
+            },
+            "answer": true
+        },
+        "case_5": {
+            "parameters": {
+                "chars": "abccab"
+            },
+            "answer": true
+        },
+        "case_6": {
+            "parameters": {
+                "chars": "abcbac"
+            },
+            "answer": true
+        },
+        "case_7": {
+            "parameters": {
+                "chars": "abcdbacd"
+            },
+            "answer": false
         }
     }
 }
