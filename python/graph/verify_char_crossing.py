@@ -62,20 +62,20 @@ class Solution(base.solution.Solution):
             graph[c] = [cn for cn, count in collections.Counter(chars[s + 1: e]).items() if count == 1]
         if not graph:
             return True
-        print(graph)
+
         # Start bfs, make sure each adj vector has different mark
         # 1 should have an adj vector of 0, and 0 should have an adj vector of 1
-        starter = list(graph.keys())[0]
+        starter = next(iter(graph))
         q = collections.deque([starter])
-        state = {starter: 1}
+        state = {starter: True}
         while q:
             c = q.popleft()
             for nc in graph[c]:
                 if nc in state:
-                    if state[nc] != (1 - state[c]):
+                    if state[nc] == state[c]:
                         return False
                 else:
-                    state[nc] = (1 - state[c])
+                    state[nc] = not state[c]
                     q.append(nc)
         return True
 
