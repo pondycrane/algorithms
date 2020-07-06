@@ -1,0 +1,47 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "just_2_courses": {
+            "parameters": {
+                "dependencies": [
+                    [1, 0]
+                ]
+            },
+            "answer": true
+        },
+        "small_sample_with_loop": {
+            "parameters": {
+                "dependencies": [
+                    [1, 0],
+                    [0, 1]
+                ]
+            },
+            "answer": false
+        },
+        "small_dag": {
+            "parameters": {
+                "dependencies": [
+                    [0, 5],
+                    [2, 5],
+                    [3, 2],
+                    [0, 4],
+                    [1, 4],
+                    [3, 1]
+                ] 
+            },
+            "answer": true
+        },
+        "leetcode_solution_example": {
+            "parameters": {
+                "dependencies": [
+                    [4, 3],
+                    [0, 4],
+                    [2, 0],
+                    [1, 2],
+                    [0, 1]
+                ]
+            },
+            "answer": false
+        }
+    }
+}

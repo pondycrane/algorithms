@@ -1,0 +1,17 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "chars": "abcabc"
+            },
+            "answer": false
+        },
+        "small_sample_with_loop": {
+            "parameters": {
+                "chars": "dabebcadce"
+            },
+            "answer": true
+        }
+    }
+}
