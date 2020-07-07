@@ -52,48 +52,29 @@ class Solution(base.solution.Solution):
     We can confirm with a BFS walk, and check the current vector has the opposite sign of its parent, and no collusion is found.
     """
     def verify_char_crossing(self, chars: str) -> bool:
-        indmap = collections.defaultdict(list)
-        graph = collections.defaultdict(list)
-        for i, c in enumerate(chars):
-            indmap[c].append(i)
-        
-        for c, (s, e) in indmap.items():
-            # Get the char between start, end ind with count == 1
-            graph[c] = [cn for cn, count in collections.Counter(chars[s + 1: e]).items() if count == 1]
-        if not graph:
+        def dfs(curr, side):
+            side_state[curr] = side
+
+            for nxt in graph[curr]:
+                if nxt in side_state:
+                    if side_state[curr] == side_state[nxt]:
+                        return False
+                else:
+                    if not dfs(nxt, not side):
+                        return False
             return True
 
-        # Start bfs, make sure each adj vector has different mark
-        # 1 should have an adj vector of 0, and 0 should have an adj vector of 1
-        starter = next(iter(graph))
-#        q = collections.deque([starter])
-#        state = {starter: True}
-#        while q:
-#            c = q.popleft()
-#            for nc in graph[c]:
-#                if nc in state:
-#                    if state[nc] == state[c]:
-#                        return False
-#                else:
-#                    state[nc] = not state[c]
-#                    q.append(nc)
-#        return True
-        visited = collections.defaultdict(bool)
-        def dfs(curr):
-            visited[curr] = True
-            
-            for nxt in graph[curr]:
-                if not visited[nxt]:
-                    visited[nxt] = not visited[curr]
-                    if dfs(nxt): return True
-                elif visited[nxt] == visited[curr]:
-                    return False
-                    
-            return False
-        
-        return dfs(starter)
+        hm = collections.defaultdict(list)
+        for i, c in enumerate(chars):
+            hm[c].append(i)
 
+        graph = collections.defaultdict(list)
+        for c, (s, e) in hm.items():
+            # Get the char between start, end ind with count == 1
+            graph[c] = [i for i, count in collections.Counter(chars[s + 1: e]).items() if count == 1]
 
+        if not graph: return True # no crossing
 
-
-
+        curr = next(iter(graph))
+        side_state = {}
+        return dfs(curr, True)
