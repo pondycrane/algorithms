@@ -71,7 +71,9 @@ class Solution(base.solution.Solution):
         graph = collections.defaultdict(list)
         for c, (s, e) in hm.items():
             # Get the char between start, end ind with count == 1
-            graph[c] = [i for i, count in collections.Counter(chars[s + 1: e]).items() if count == 1]
+            wrapped = [i for i, count in collections.Counter(chars[s + 1: e]).items() if count == 1]
+            if wrapped:
+                graph[c] = wrapped
 
         if not graph: return True # no crossing
 

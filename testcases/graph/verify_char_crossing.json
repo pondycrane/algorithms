@@ -42,6 +42,18 @@
                 "chars": "abcdbacd"
             },
             "answer": false
+        },
+        "case_8": {
+            "parameters": {
+                "chars": "aabcdbcd"
+            },
+            "answer": false
+        },
+        "case_9": {
+            "parameters": {
+                "chars": "bacbecdead"
+            },
+            "answer": false
         }
     }
 }
