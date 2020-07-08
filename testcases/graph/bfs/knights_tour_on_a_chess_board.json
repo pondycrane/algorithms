@@ -1,0 +1,49 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "rows": 5,
+                "cols": 5,
+                "start_row": 0,
+                "start_col": 0,
+                "end_row": 4,
+                "end_col": 1
+            },
+            "answer": 3
+        },
+        "case_2": {
+            "parameters": {
+                "rows": 2,
+                "cols": 2,
+                "start_row": 1,
+                "start_col": 1,
+                "end_row": 0,
+                "end_col": 0
+            },
+            "answer": -1
+        },
+        "case_3": {
+            "parameters": {
+                "rows": 49999,
+                "cols": 2,
+                "start_row": 49993,
+                "start_col": 1,
+                "end_row": 53,
+                "end_col": 0
+            },
+            "answer": -1
+        },
+        "case_4": {
+            "parameters": {
+                "rows": 3,
+                "cols": 8,
+                "start_row": 0,
+                "start_col": 6,
+                "end_row": 1,
+                "end_col": 3
+            },
+            "answer": 2
+        }
+    }
+}
