@@ -1,0 +1,29 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "words": ["cat", "hat", "bad", "had"],
+                "start": "bat",
+                "stop": "had"
+            },
+            "answer": ["bat", "hat", "had"]
+        },
+        "case_2": {
+            "parameters": {
+                "words": ["aaa"],
+                "start": "baa",
+                "stop": "aab"
+            },
+            "answer": ["baa", "aaa", "aab"]
+        },
+        "case_3": {
+            "parameters": {
+                "words": ["cccw", "accc", "accw"],
+                "start": "cccc",
+                "stop": "cccc"
+            },
+            "answer": ["cccc", "cccw", "cccc"]
+        }
+    }
+}
