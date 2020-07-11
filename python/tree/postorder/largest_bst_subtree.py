@@ -6,31 +6,20 @@ from lib.ds_collections.treenode import TreeNode
 
 class Solution(base.solution.Solution):
     def largest_bst_subtree(self, root: List[int]) -> int:
-        root = TreeNode.deserialize(root)
-        if root is None: return 0
-        
         def postorder(n):
-            if n.left == n.right == None:
-                return 1, n.val, n.val
+            if n is None:
+                return 0, float('inf'), float('-inf')
 
-            if n.left is None:
-                lc, lmin, lmax = 0, n.val, float('-inf')
-            else:
-                lc, lmin, lmax = postorder(n.left)
-
-            if n.right is None:
-                rc, rmin, rmax = 0, float('inf'), n.val
-            else:
-                rc, rmin, rmax = postorder(n.right)
+            lc, lmin, lmax = postorder(n.left)
+            rc, rmin, rmax = postorder(n.right)
             
             if n.val <= lmax or n.val >= rmin:
                 return max(rc, lc), float('-inf'), float('inf')
 
-            return rc + lc + 1, lmin, rmax
+            return rc + lc + 1, min(n.val, lmin), max(n.val, rmax)
 
         c, _, _ = postorder(root)
         return c
-
             
 
 """
