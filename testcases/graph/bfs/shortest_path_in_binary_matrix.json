@@ -1,0 +1,23 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "grid": [[0, 1], [1, 0]]
+            },
+            "answer": 2
+        },
+        "case_2": {
+            "parameters": {
+                "grid": [[0,0,0],[1,1,0],[1,1,0]]
+            },
+            "answer": 4
+        },
+        "case_3": {
+            "parameters": {
+                "grid": [[1,0,0],[1,1,0],[1,1,0]]
+            },
+            "answer": -1
+        }
+    }
+}

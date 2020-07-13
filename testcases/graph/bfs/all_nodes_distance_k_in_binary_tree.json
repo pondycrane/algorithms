@@ -1,0 +1,13 @@
+{
+    "verify_method": "UNORDERED_LIST",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "root": [3,5,1,6,2,0,8,null,null,7,4],
+                "target": 5,
+                "K": 2
+            },
+            "answer": [7, 4, 1]
+        }
+    }
+}
