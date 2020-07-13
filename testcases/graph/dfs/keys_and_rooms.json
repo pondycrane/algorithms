@@ -1,0 +1,17 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "rooms": [[1],[2],[3],[]]
+            },
+            "answer": true
+        },
+        "case_2": {
+            "parameters": {
+                "rooms": [[1,3],[3,0,1],[2],[0]]
+            },
+            "answer": false
+        }
+    }
+}
