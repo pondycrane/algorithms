@@ -1,0 +1,50 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "board": [
+  ["A","B","C","E"],
+  ["S","F","C","S"],
+  ["A","D","E","E"]
+],
+                "word": "ABCCED"
+            },
+            "answer": true
+        },
+        "case_2": {
+            "parameters": {
+                "board": [
+  ["A","B","C","E"],
+  ["S","F","C","S"],
+  ["A","D","E","E"]
+
+],
+                "word": "SEE"
+            },
+            "answer": true
+        },
+        "case_3": {
+            "parameters": {
+                "board": [
+  ["A","B","C","E"],
+  ["S","F","C","S"],
+  ["A","D","E","E"]
+
+],
+                "word": "ABCB"
+            },
+            "answer": false
+        },
+        "case_4": {
+            "parameters": {
+                "board": [
+                    ["a"]
+],
+                "word": "a"
+            },
+            "answer": true
+        }
+
+    }
+}
