@@ -1,0 +1,25 @@
+{
+    "verify_method": "UNORDERED_LIST",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "beginWord": "hit",
+                "endWord": "cog",
+                "wordList": ["hot","dot","dog","lot","log","cog"]
+            },
+            "answer": [
+              ["hit","hot","dot","dog","cog"],
+              ["hit","hot","lot","log","cog"]
+            ]
+        },
+        "case_2": {
+            "parameters": {
+                "beginWord": "hit",
+                "endWord": "cog",
+                "wordList": ["hot","dot","dog","lot","log"]
+            },
+            "answer": [
+            ]
+        }
+    }
+}
