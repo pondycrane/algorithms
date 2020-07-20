@@ -1,0 +1,11 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "bags": [5, 10, 6, 2]
+            },
+            "answer": 12
+        }
+    }
+}

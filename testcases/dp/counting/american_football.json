@@ -1,0 +1,11 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "S": 7
+            },
+            "answer": 3
+        }
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "a": "xyzx",
+                "b": "xyy",
+                "c": "xyxyzxy"
+            },
+            "answer": true
+        },
+        "case_2": {
+            "parameters": {
+                "a": "xyzx",
+                "b": "xyy",
+                "c": "xyyxyxz"
+            },
+            "answer": false
+        },
+        "case_3": {
+            "parameters": {
+                "a": "xyzx",
+                "b": "xyy",
+                "c": "xyxyzx"
+            },
+            "answer": false
+        },
+        "case_4": {
+            "parameters": {
+                "a": "xyzx",
+                "b": "xyy",
+                "c": "xyyxyzx"
+            },
+            "answer": true
+        },
+        "case_5": {
+            "parameters": {
+                "a": "xyzx",
+                "b": "xyy",
+                "c": "xyzxxyy"
+            },
+            "answer": true
+        },
+        "case_6": {
+            "parameters": {
+                "a": "123",
+                "b": "xyz",
+                "c": "1xy23z"
+            },
+            "answer": true
+        }
+    }
+}
