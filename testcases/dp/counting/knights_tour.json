@@ -1,0 +1,19 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "startdigit": 1,
+                "phonenumberlength": 2
+            },
+            "answer": 2
+        },
+        "case_2": {
+            "parameters": {
+                "startdigit": 1,
+                "phonenumberlength": 3
+            },
+            "answer": 5
+        }
+    }
+}
