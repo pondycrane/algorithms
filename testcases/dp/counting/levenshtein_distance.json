@@ -1,0 +1,19 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "strWord1": "cat",
+                "strWord2": "bat"
+            },
+            "answer": 1
+        },
+        "case_2": {
+            "parameters": {
+                "strWord1": "qwe",
+                "strWord2": "q"
+            },
+            "answer": 2
+        }
+    }
+}
