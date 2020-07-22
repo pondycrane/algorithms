@@ -1,0 +1,17 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "values": [6, 1, 2, 7]
+            },
+            "answer": 13
+        },
+        "case_2": {
+            "parameters": {
+                "values": [1, 2, 4, 5, 1]
+            },
+            "answer": 7
+        }
+    }
+}
