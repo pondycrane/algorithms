@@ -35,7 +35,7 @@ class Solution(base.solution.Solution):
                     dp[i] += 1
                 elif i - l > 0 and txt[i - l: i] in words:
                     dp[i] += dp[i - l]
-        return dp[len(txt)]
+        return dp[len(txt)] % (10 ** 9 + 7)
 
 
 
