@@ -1,0 +1,34 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "matrix": [
+                    [1, 1, 1, 1],
+                    [1, 1, 1, 1],
+                    [1, 1, 1, 1]
+                ]
+            },
+            "answer": 10
+        },
+        "case_2": {
+            "parameters": {
+                "matrix": [
+                    [1, 1],
+                    [0, 1]
+                ]
+            },
+            "answer": 1
+        },
+        "case_3": {
+            "parameters": {
+                "matrix": [
+                    [1, 1, 0],
+                    [1, 1, 1],
+                    [0, 1, 1]
+                ]
+            },
+            "answer": 4
+        }
+    }
+}

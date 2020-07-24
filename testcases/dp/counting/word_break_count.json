@@ -1,0 +1,32 @@
+{
+    "verify_method": "EQUAL",
+    "testcases":{
+        "case_1": {
+            "parameters": {
+                "dictionary": [
+                    "kick", "start", "kickstart", "is", "awe", "some", "awesome"
+                ],
+                "txt": "kickstartisawesome"
+            },
+            "answer": 4
+        },
+        "case_2": {
+            "parameters": {
+                "dictionary": [
+                    "a", "aa", "aaa", "aaaa", "aaaaa"
+                ],
+                "txt": "aaaaa"
+            },
+            "answer": 16
+        },
+        "case_3": {
+            "parameters": {
+                "dictionary": [
+                    "lli", "ill", "ll", "ii"
+                ],
+                "txt": "lliill"
+            },
+            "answer": 2
+        }
+    }
+}
