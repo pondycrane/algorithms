@@ -20,7 +20,7 @@ class Solution(base.solution.Solution):
 
         dp = [set([s[0]])]
         found = False
-        for i in range(1, len(s)):
+        for i in range(1, len(s) - 1):
             dp.append(set([s[i]]))
             for num in dp[i - 1]:
                 dp[i].add(num)
