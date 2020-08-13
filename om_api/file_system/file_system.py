@@ -9,31 +9,21 @@ class NodeInterface(abc.ABC):
         self.children = []
         self.data = None
 
-    @abc.abstractmethod
-    def accept(self, visitor):
+    def accept(self, visitor, *args, **kwargs):
         """
         To get subdirectory or files for a directory.
         Should have concrete implementation for Directory class.
         """
-
-class File(NodeInterface):
-    def accept(self, visitor, *args, **kwargs):
         visitor.visit(self, *args, **kwargs)
 
+class File(NodeInterface): pass
 
-class Directory(NodeInterface):
-    def accept(self, visitor, *args, **kwargs):
-        visitor.visit(self, *args, **kwargs)
-
+class Directory(NodeInterface): pass
 
 class SysLink(NodeInterface):
     def __init__(self, name, permission, target):
         super().__init__(name, permission)
         self.target = target
-
-    def accept(self, visitor, *args, **kwargs):
-        visitor.visit(self, *args, **kwargs)
-
 
 class NodeVisitorInterface(abc.ABC):
     @abc.abstractmethod
