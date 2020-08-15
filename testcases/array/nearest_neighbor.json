@@ -1,0 +1,14 @@
+{
+    "verify_method": "UNORDERED_LIST",
+    "testcases": {
+        "case_1": {
+            "parameters": {
+                "p_x": 1,
+                "p_y": 1,
+                "k": 1,
+                "n_points": [[0, 0], [1, 0]]
+            },
+            "answer": [[1, 0]]
+        }
+    }
+}
